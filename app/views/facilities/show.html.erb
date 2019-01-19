@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @facility.title %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @facility.location %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @facility.capacity %>
+</p>
+
+<p>
+  <strong>Environment:</strong>
+  <%= @facility.environment %>
+</p>
+
+<p>
+  <strong>Reviews:</strong>
+  <%= @facility.reviews %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @facility.comments %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @facility.description %>
+</p>
+
+<%= link_to 'Edit', edit_facility_path(@facility) %> |
+<%= link_to 'Back', facilities_path %>

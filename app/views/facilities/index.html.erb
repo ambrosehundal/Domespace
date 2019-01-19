@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Facilities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Location</th>
+      <th>Capacity</th>
+      <th>Environment</th>
+      <th>Reviews</th>
+      <th>Comments</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @facilities.each do |facility| %>
+      <tr>
+        <td><%= facility.title %></td>
+        <td><%= facility.location %></td>
+        <td><%= facility.capacity %></td>
+        <td><%= facility.environment %></td>
+        <td><%= facility.reviews %></td>
+        <td><%= facility.comments %></td>
+        <td><%= facility.description %></td>
+        <td><%= link_to 'Show', facility %></td>
+        <td><%= link_to 'Edit', edit_facility_path(facility) %></td>
+        <td><%= link_to 'Destroy', facility, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Facility', new_facility_path %>
