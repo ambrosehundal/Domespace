@@ -1,0 +1,52 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  %a.navbar-brand{href: "#"} Domespace
+  %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", type: "button"}
+    %span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    %ul.navbar-nav.pull-right
+      %li.nav-item.active
+        %a.nav-link{href: "#"}
+          Home
+          %span.sr-only (current)
+      %li.nav-item
+        %a.nav-link{href: "#"} Facilities
+      %li.nav-item
+        %a.nav-link{href: "#"} Become a Host
+      %li.nav-item
+        %a.nav-link.disabled{href: "#"} Sign up
+
+
+%p#notice= notice
+%h1 Facilities
+
+%br
+%br
+
+ 
+- @facilities.each do |facility|
+  %div.poster
+    %br
+    %br
+    %br
+    %br
+    %br
+    %br
+    %br
+    %br
+    %br
+   
+    %p.facil_name= facility.title
+    %p= facility.location  
+    .stats
+      %p= facility.capacity 
+      
+    %p= facility.price
+    %p= facility.environment
+    %p= facility.reviews
+    %p= facility.comments
+    %p= facility.description
+    //%p= link_to 'Show', facility
+    //%p= link_to 'Edit', edit_facility_path(facility)
+    //%p= link_to 'Destroy', facility, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Facility', new_facility_path
