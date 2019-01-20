@@ -29,6 +29,9 @@ gem 'bootstrap', '~> 4.0.0'
 
 gem 'jquery-rails'
 
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
