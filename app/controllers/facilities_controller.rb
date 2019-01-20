@@ -3,6 +3,7 @@ class FacilitiesController < ApplicationController
 
   # GET /facilities
   # GET /facilities.json
+
   def index
     @facilities = Facility.all
   end
@@ -10,6 +11,10 @@ class FacilitiesController < ApplicationController
   # GET /facilities/1
   # GET /facilities/1.json
   def show
+  end
+
+  def search
+  
   end
 
   # GET /facilities/new

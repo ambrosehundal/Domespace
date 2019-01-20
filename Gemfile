@@ -8,6 +8,21 @@ gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
+group :development, :test do
+  # Test Framework
+  gem 'rspec'
+  gem 'rspec-rails'
+end
+group :test do
+  # Clean Database between tests
+  gem 'database_cleaner'
+  # Programmatically start and stop ES for tests
+  gem 'elasticsearch-extensions'
+end
+
 gem 'haml'
 
 gem 'bootstrap', '~> 4.0.0'
