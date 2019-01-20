@@ -1,3 +1,5 @@
+%link{:href => "https://fonts.googleapis.com/css?family=Righteous", :rel => "stylesheet"}/
+
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
   %a.navbar-brand{href: "#"} Domespace
   %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", type: "button"}
@@ -17,34 +19,29 @@
 
 
 %p#notice= notice
-%h1 Facilities
+%h1.facil.fh 100+ facilities
 
 %br
-%br
+
 
  
 - @facilities.each do |facility|
-  %div.poster
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-   
+  %div.dome
+    %div.poster
+    
     %p.facil_name= facility.title
-    %p= facility.location  
+    //%p= facility.location  
     .stats
-      %p= facility.capacity 
-      
-    %p= facility.price
-    %p= facility.environment
+      %p.facil_margin Capacity: 
+      %p.facil= facility.capacity 
+      %p.facil_margin Price per night $
+      %p.facil= facility.price
+    .facility_type  
+      %p.facil_margin Facility Type:  
+      %p.facil_margin= facility.environment
     %p= facility.reviews
     %p= facility.comments
-    %p= facility.description
+    //%p= facility.description
     //%p= link_to 'Show', facility
     //%p= link_to 'Edit', edit_facility_path(facility)
     //%p= link_to 'Destroy', facility, method: :delete, data: { confirm: 'Are you sure?' }
