@@ -1,0 +1,32 @@
+%link{:href => "https://fonts.googleapis.com/css?family=Righteous", :rel => "stylesheet"}/
+%h1 Elastic search for Facilities
+= form_for :search_facilities, url: search_facilities_path, method: :get do |form|
+  = form.text_field :query, value: params[:search_facilities].presence && params[:search_facilities][:query]
+  = form.submit 'Search'
+- unless @facilities.nil?
+  - if @facilities.empty?
+    %h2 No facilities found matching your query.
+  - else
+    %h2 Search results
+    - @facilities.each do |facility|
+      %div.dome
+        %div.poster
+        
+        %p.facil_name= facility.title
+        //%p= facility.location  
+        .stats
+          %p.facil_margin Capacity: 
+          %p.facil= facility.capacity 
+          %p.facil_margin Price per night $
+          %p.facil= facility.price
+        .facility_type  
+          %p.facil_margin Facility Type:  
+          %p.facil_margin= facility.environment
+        %p= facility.reviews
+        %p= facility.comments
+        //%p= facility.description
+        //%p= link_to 'Show', facility
+        //%p= link_to 'Edit', edit_facility_path(facility)
+        //%p= link_to 'Destroy', facility, method: :delete, data: { confirm: 'Are you sure?' }
+    %br/
+
