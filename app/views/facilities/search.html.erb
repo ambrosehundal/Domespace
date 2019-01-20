@@ -1,3 +1,9 @@
+<h1>Search for a facility</h1>
+
+<br>
+<br>
+<br>
+
 <%= form_tag(facilities_path, :method => "get",   
     class: 'navbar-form navbar-left') do %>  
   <div class="input-group">  
@@ -7,3 +13,9 @@
     </div>  
   </div>  
 <% end %>
+
+<h3>Search Result</h3>  
+
+    <% @results.each do |result| %>  
+        <%= result.title %><br>  
+    <% end %>

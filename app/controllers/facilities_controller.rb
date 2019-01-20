@@ -14,6 +14,15 @@ class FacilitiesController < ApplicationController
   end
 
   def search
+    if params[:search].blank?  
+      redirect_to(root_path, alert: "Empty field!") and return  
+    else  
+      @parameter = params[:search]  
+      @results = Facility.all.where("lower(title) LIKE :search", search: @parameter) 
+      
+    end
+
+     
   
   end
 
