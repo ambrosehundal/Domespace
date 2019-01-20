@@ -12,6 +12,10 @@ class FacilitiesController < ApplicationController
   # GET /facilities/1.json
   def show
   end
+  
+  def demo
+  
+  end
 
   def search
     if params[:search].blank?  
