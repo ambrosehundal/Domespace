@@ -11,17 +11,7 @@ gem 'sqlite3'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
-group :development, :test do
-  # Test Framework
-  gem 'rspec'
-  gem 'rspec-rails'
-end
-group :test do
-  # Clean Database between tests
-  gem 'database_cleaner'
-  # Programmatically start and stop ES for tests
-  gem 'elasticsearch-extensions'
-end
+
 
 gem 'haml'
 
@@ -29,8 +19,7 @@ gem 'bootstrap', '~> 4.0.0'
 
 gem 'jquery-rails'
 
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
+
 
 
 # Use Puma as the app server
