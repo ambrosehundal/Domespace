@@ -1,21 +1,37 @@
-<h1>Search for a facility</h1>
+<h1>Elastic search for Facilities</h1>
 
-<br>
-<br>
-<br>
-
-<%= form_tag(facilities_path, :method => "get",   
-    class: 'navbar-form navbar-left') do %>  
-  <div class="input-group">  
-    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
-    <div class="input-group-btn">  
-      <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
-    </div>  
-  </div>  
+<%= form_for :search_facilities, url: search_facilities_path, method: :get do |form| %>
+  <%= form.text_field :query, value: params[:search_facilities].presence && params[:search_facilities][:query] %>
+  <%= form.submit 'Search' %>
 <% end %>
 
-<h3>Search Result</h3>  
+<% unless @facilities.nil? %>
+  <% if @facilities.empty? %>
+    <h2>No facilities found matching your query.</h2>
+  <% else %>
+    <h2>Search results</h2>
 
-    <% @results.each do |result| %>  
-        <%= result.title %><br>  
-    <% end %>
+    <table style="width: 100%;">
+      <thead>
+         <tr>
+           <th>Title</th>
+           <th>Location</th>
+           <th>Capacity</th>
+           <th>Price</th>
+         </tr>
+      </thead>
+
+      <tbody>
+        <% @facilities.each do |facility| %>
+          <tr>
+            <td><%= facility.title %></td>
+            <td><%= facility.location %></td>
+            <td><%= facility.capacity %></td>
+            <td><%= facility.price %></td>
+            <td><%= link_to 'View', facility_path(facility.id) %></td>
+          </tr>
+        <% end %>
+      <tbody>
+    </table>
+  <% end %>
+<% end %>

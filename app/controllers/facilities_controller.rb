@@ -11,6 +11,7 @@ class FacilitiesController < ApplicationController
   # GET /facilities/1
   # GET /facilities/1.json
   def show
+    @facility = Facility.find(params[:id])
   end
   
   def demo
@@ -18,12 +19,10 @@ class FacilitiesController < ApplicationController
   end
 
   def search
-    if params[:search].blank?  
-      redirect_to(root_path, alert: "Empty field!") and return  
-    else  
-      @parameter = params[:search]  
-      @results = Facility.all.where("lower(title) LIKE :search", search: @parameter) 
-      
+    query = params[:search_facilities].presence && params[:search_facilities][:query]
+
+    if query
+      @facilities = Facility.search_published(query)
     end
 
      
